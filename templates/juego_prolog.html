@@ -2,23 +2,26 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Akinator HSR con Prolog</title>
+    <title>Akinator HSR: Expreso Astral</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>¡Adivina el personaje de Honkai: Star Rail!</h1>
-    <p>Quedan **{{ candidatos_restantes }}** posibles candidatos.</p>
+    <div class="container">
+        <h1>✨ Genio de la Curiosidad del Expreso Astral ✨</h1>
+        
+        <p>Quedan **{{ candidatos_restantes }}** posibles candidatos en la Base de Datos.</p>
 
-    <h2>Pregunta:</h2>
-    <p>{{ pregunta }}</p>
-    <p><em>Tu respuesta debe ser un término simple y en minúsculas (ej: masculino, fuego, conservacion).</em></p>
+        <h2>Transmisión Recibida:</h2>
+        <p>{{ pregunta }}</p>
+        
+        <p><em>Recuerda, la respuesta debe ser un término simple en minúsculas (Ej: femenino, caza, cinco_estrellas).</em></p>
 
-    <form method="POST">
-        <label for="respuesta">Ingresa tu respuesta:</label>
-        <input type="text" id="respuesta" name="respuesta" required> 
-        <button type="submit">Siguiente Pregunta</button>
-    </form>
+        <form method="POST">
+            <input type="text" id="respuesta" name="respuesta" placeholder="Escribe el átomo de tu respuesta..." required> 
+            <button type="submit">Continuar el Viaje</button>
+        </form>
 
-    <br>
-    <p><a href="/">Empezar de nuevo</a></p>
+        <a href="/">Empezar un nuevo viaje</a>
+    </div>
 </body>
 </html>

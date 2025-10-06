@@ -1,0 +1,76 @@
+/* honkai-akinator/static/css/style.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1117; /* Azul medianoche oscuro */
+    color: #e6e6e6; /* Blanco suave para el texto */
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #161b22; /* Panel central oscuro */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(70, 130, 180, 0.4); /* Sombra azul tenue */
+    border: 1px solid #30363d;
+}
+h1 {
+    color: #ffd700; /* Dorado para títulos principales */
+    font-size: 1.8em;
+    border-bottom: 2px solid #30363d;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+h2 {
+    color: #79b8ff; /* Azul brillante para preguntas y mensajes */
+    font-size: 1.5em;
+    margin-top: 0;
+}
+p {
+    color: #a8b3cf;
+    line-height: 1.6;
+}
+input[type="text"], button {
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+input[type="text"] {
+    background-color: #21262d;
+    color: #e6e6e6;
+    border: 1px solid #48536b;
+    width: 70%;
+    max-width: 300px;
+}
+button {
+    background-color: #007bff; /* Botón azul primario */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+a {
+    color: #ffd700; /* Enlaces en dorado */
+    text-decoration: none;
+    margin-top: 20px;
+    display: block;
+}
+a:hover {
+    text-decoration: underline;
+}
+em {
+    color: #f08080; /* Rojo suave para las notas de formato */
+}
+.success {
+    color: #4CAF50; /* Verde de éxito */
+}
+.failure {
+    color: #ff6347; /* Rojo de fallo */
+}
