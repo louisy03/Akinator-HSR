@@ -29,11 +29,17 @@ Sigue estos pasos para poner en marcha el proyecto:
 Asegúrate de que tus archivos estén organizados así:
 
 honkai-akinator/
+
 ├── app.py              # Aplicación principal de Flask y puente con Prolog.
+
 ├── star_rail.pl        # Base de Conocimiento (Hechos y Reglas de Prolog).
+
 ├── requirements.txt    # Dependencias de Python.
+
 └── templates/
+
 ├── juego_prolog.html
+
 └── resultado.html
 
 
