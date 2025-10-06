@@ -110,7 +110,7 @@ personaje(seele, origen_historia, belobog).
 personaje(seele, genero, femenino).
 personaje(seele, rareza, cinco_estrellas).
 personaje(seele, via, caceria).
-personaje(seele, elemento, quantico).
+personaje(seele, elemento, cuantico).
 personaje(seele, rol, dps).
 personaje(seele, tipo_modelo, mediano).
 personaje(seele, escalado, ataque).
@@ -434,7 +434,7 @@ personaje(tribbie, origen_historia, amphoreus).
 personaje(tribbie, genero, femenino).
 personaje(tribbie, rareza, cinco_estrellas).
 personaje(tribbie, via, armonia).
-personaje(tribbie, elemento, quantico).
+personaje(tribbie, elemento, cuantico).
 personaje(tribbie, tipo_modelo, chico).
 personaje(tribbie, rol, buffer).
 personaje(tribbie, escalado, vida).
@@ -458,7 +458,7 @@ personaje(castorice, origen_historia, amphoreus).
 personaje(castorice, genero, femenino).
 personaje(castorice, rareza, cinco_estrellas).
 personaje(castorice, via, reminiscencia).
-personaje(castorice, elemento, quantico).
+personaje(castorice, elemento, cuantico).
 personaje(castorice, tipo_modelo, alto).
 personaje(castorice, rol, dps).
 personaje(castorice, escalado, vida).
