@@ -1,0 +1,6 @@
+# Flask: Framework web para manejar la interfaz, rutas y sesiones.
+Flask
+
+# pyswip: Puente para la integración de Python con SWI-Prolog.
+# Necesita la instalación previa de SWI-Prolog en el sistema.
+pyswip
