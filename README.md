@@ -42,7 +42,7 @@ Instala las librerías necesarias (Flask y pyswip):
 
     pip install -r requirements.txt
 
-(El archivo requirements.txt contiene: Flask y pyswip)
+(El archivo requirements.txt contiene: `Flask` y `pyswip`)
 
 ### Ejecución del Proyecto
 Ejecuta la aplicación Flask desde el directorio raíz:
