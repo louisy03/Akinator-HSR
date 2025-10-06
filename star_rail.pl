@@ -418,7 +418,7 @@ personaje(hysilens, color_pelo_dominante, negro).
 % Amporeous
 
 % Medeimos
-personaje(medeimos, origen_historia, amphoreous).
+personaje(medeimos, origen_historia, amphoreus).
 personaje(medeimos, genero, masculino).
 personaje(medeimos, rareza, cinco_estrellas).
 personaje(medeimos, via, destruccion).
@@ -430,7 +430,7 @@ personaje(medeimos, tiene_forma_alterna, no).
 personaje(medeimos, color_pelo_dominante, rubio).
 
 % Tribbie
-personaje(tribbie, origen_historia, amphoreous).
+personaje(tribbie, origen_historia, amphoreus).
 personaje(tribbie, genero, femenino).
 personaje(tribbie, rareza, cinco_estrellas).
 personaje(tribbie, via, armonia).
@@ -442,7 +442,7 @@ personaje(tribbie, tiene_forma_alterna, no).
 personaje(tribbie, color_pelo_dominante, rojo).
 
 % Aglea
-personaje(aglea, origen_historia, amphoreous).
+personaje(aglea, origen_historia, amphoreus).
 personaje(aglea, genero, femenino).
 personaje(aglea, rareza, cinco_estrellas).
 personaje(aglea, via, reminiscencia).
@@ -454,7 +454,7 @@ personaje(aglea, tiene_forma_alterna, no).
 personaje(aglea, color_pelo_dominante, rubio).
 
 % Castorice
-personaje(castorice, origen_historia, amphoreous).
+personaje(castorice, origen_historia, amphoreus).
 personaje(castorice, genero, femenino).
 personaje(castorice, rareza, cinco_estrellas).
 personaje(castorice, via, reminiscencia).
@@ -466,7 +466,7 @@ personaje(castorice, tiene_forma_alterna, no).
 personaje(castorice, color_pelo_dominante, purpura).
 
 % Hyacine
-personaje(hyacine, origen_historia, amphoreous).
+personaje(hyacine, origen_historia, amphoreus).
 personaje(hyacine, genero, femenino).
 personaje(hyacine, rareza, cinco_estrellas).
 personaje(hyacine, via, reminiscencia).
