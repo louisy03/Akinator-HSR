@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Akinator HSR con Prolog</title>
+</head>
+<body>
+    <h1>¡Adivina el personaje de Honkai: Star Rail!</h1>
+    <p>Quedan **{{ candidatos_restantes }}** posibles candidatos.</p>
+
+    <h2>Pregunta:</h2>
+    <p>{{ pregunta }}</p>
+    <p><em>Tu respuesta debe ser un término simple y en minúsculas (ej: masculino, fuego, conservacion).</em></p>
+
+    <form method="POST">
+        <label for="respuesta">Ingresa tu respuesta:</label>
+        <input type="text" id="respuesta" name="respuesta" required> 
+        <button type="submit">Siguiente Pregunta</button>
+    </form>
+
+    <br>
+    <p><a href="/">Empezar de nuevo</a></p>
+</body>
+</html>

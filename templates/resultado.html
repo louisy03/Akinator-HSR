@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado del Akinator</title>
+</head>
+<body>
+    <h1>Fin del Juego</h1>
+
+    {% if adivinado %}
+        <h2>🎉 ¡Lo he adivinado! 🎉</h2>
+        <p>¿Pensabas en **{{ personaje }}**?</p>
+        <p>¡Soy el Genio del Expreso Astral!</p>
+    {% else %}
+        <h2>😔 ¡Me has ganado! 😔</h2>
+        <p>Se me acabaron las preguntas, o no queda suficiente información.</p>
+        {% if candidatos %}
+            <p>Los personajes restantes eran: **{{ candidatos|join(', ') }}**.</p>
+        {% else %}
+            <p>No encontré ningún personaje que coincida con tus respuestas. ¡Añadiré tu personaje a mi base de datos para la próxima!</p>
+        {% endif %}
+    {% endif %}
+
+    <br>
+    <p><a href="/">Volver a jugar</a></p>
+</body>
+</html>
