@@ -36,11 +36,11 @@ honkai-akinator/
 
 ├── requirements.txt    # Dependencias de Python.
 
-└── templates/
+    └── templates/
 
-├── juego_prolog.html
+    ├── juego_prolog.html
 
-└── resultado.html
+    └── resultado.html
 
 
 ### 2. Instalar Dependencias de Python
