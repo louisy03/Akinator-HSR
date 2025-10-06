@@ -40,14 +40,14 @@ Asegúrate de que tus archivos estén organizados así:
 ### 2. Instalar Dependencias de Python
 Instala las librerías necesarias (Flask y pyswip):
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 (El archivo requirements.txt contiene: Flask y pyswip)
 
 ### Ejecución del Proyecto
 Ejecuta la aplicación Flask desde el directorio raíz:
 
-python app.py
+    python app.py
 
 Abre tu navegador y navega a la dirección que se muestra en la terminal (usualmente http://127.0.0.1:5000/).
 
