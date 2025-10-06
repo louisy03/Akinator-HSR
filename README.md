@@ -27,20 +27,13 @@ Sigue estos pasos para poner en marcha el proyecto:
 ### 1. Estructura del Proyecto
 
 Asegúrate de que tus archivos estén organizados así:
-
-honkai-akinator/
-
-├── app.py              # Aplicación principal de Flask y puente con Prolog.
-
-├── star_rail.pl        # Base de Conocimiento (Hechos y Reglas de Prolog).
-
-├── requirements.txt    # Dependencias de Python.
-
+    honkai-akinator/
+    ├── app.py              # Aplicación principal de Flask y puente con Prolog.
+    ├── star_rail.pl        # Base de Conocimiento (Hechos y Reglas de Prolog).
+    ├── requirements.txt    # Dependencias de Python.
     └── templates/
-
-    ├── juego_prolog.html
-
-    └── resultado.html
+        ├── juego_prolog.html
+        └── resultado.html
 
 
 ### 2. Instalar Dependencias de Python
