@@ -36,6 +36,19 @@ Asegúrate de que tus archivos estén organizados así:
         ├── juego_prolog.html
         └── resultado.html
 
+### 2. Entorno Virtual (Recomendado)
+
+# Crear entorno
+
+    python -m venv venv
+
+# Activar (Windows)
+
+    .\venv\Scripts\activate
+
+# Activar (macOS/Linux)
+
+    source venv/bin/activate
 
 ### 2. Instalar Dependencias de Python
 Instala las librerías necesarias (Flask y pyswip):
