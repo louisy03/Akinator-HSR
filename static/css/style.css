@@ -33,28 +33,40 @@ p {
     color: #a8b3cf;
     line-height: 1.6;
 }
-input[type="text"], button {
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 8px;
-    font-size: 1em;
-    transition: background-color 0.3s, border-color 0.3s;
-}
 input[type="text"] {
     background-color: #21262d;
     color: #e6e6e6;
     border: 1px solid #48536b;
     width: 70%;
     max-width: 300px;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 1em;
+}
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 button {
-    background-color: #007bff; /* Botón azul primario */
+    background-color: #21262d; /* Fondo oscuro para botones */
     color: white;
-    border: none;
+    border: 1px solid #30363d;
     cursor: pointer;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+    text-transform: capitalize;
 }
 button:hover {
-    background-color: #0056b3;
+    background-color: #30363d;
+    border-color: #79b8ff; /* Borde azul al pasar el ratón */
+    transform: translateY(-2px);
 }
 a {
     color: #ffd700; /* Enlaces en dorado */

@@ -13,22 +13,51 @@ prolog = Prolog()
 prolog.consult("star_rail.pl") 
 
 # Definición de las preguntas en el orden en que se harán.
+# Ahora cada pregunta tiene un texto y una lista de respuestas posibles.
 PREGUNTAS = {
     # PRIORIDAD ALTA
-    "origen_historia": "¿El personaje proviene del Expreso Astral, Xianzhou Luofu, o Belobog? (Responde: expreso_astral / xianzhou / belobog / otros)",
-    "genero": "¿Tu personaje es de género femenino? (Responde: femenino / masculino)",
-    "rareza": "¿Tu personaje es de 5 estrellas? (Responde: cinco_estrellas / cuatro_estrellas)",
-    "via": "¿Cuál es la Vía de tu personaje? (Responde: caza / erudicion / destruccion / conservacion / armonia / nihilidad / abundancia)",
-    "elemento": "¿Cuál es el elemento de tu personaje? (Responde: fuego / hielo / viento / rayo / fisico / quantico / imaginario)",
-    
+    "origen_historia": {
+        "texto": "¿De qué facción principal es tu personaje?",
+        "respuestas": ["expreso_astral", "xianzhou", "belobog", "otros"]
+    },
+    "genero": {
+        "texto": "¿Tu personaje es de género femenino o masculino?",
+        "respuestas": ["femenino", "masculino"]
+    },
+    "rareza": {
+        "texto": "¿Tu personaje es de 5 estrellas o 4 estrellas?",
+        "respuestas": ["cinco_estrellas", "cuatro_estrellas"]
+    },
+    "via": {
+        "texto": "¿Cuál es la Vía de tu personaje?",
+        "respuestas": ["caza", "erudicion", "destruccion", "conservacion", "armonia", "nihilidad", "abundancia"]
+    },
+    "elemento": {
+        "texto": "¿Cuál es el elemento de tu personaje?",
+        "respuestas": ["fuego", "hielo", "viento", "rayo", "fisico", "quantico", "imaginario"]
+    },
     # PRIORIDAD MEDIA
-    "rol_secundario": "¿Tiene tu personaje un rol de soporte secundario notable (curar, proteger)? (Responde: shielder / healer / buffer / debuffer / no_aplica)",
-    "escalado_dano": "¿El daño del personaje escala con HP o DEF en lugar de ATK? (Responde: hp / def / atk)",
-    
+    "rol_secundario": {
+        "texto": "¿Tiene tu personaje un rol de soporte secundario notable?",
+        "respuestas": ["shielder", "healer", "buffer", "debuffer", "no_aplica"]
+    },
+    "escalado_dano": {
+        "texto": "¿El daño del personaje escala principalmente con HP o DEF en lugar de ATK?",
+        "respuestas": ["hp", "def", "atk"]
+    },
     # PRIORIDAD BAJA (Desempate)
-    "tiene_forma_alterna": "¿Tu personaje tiene una versión alternativa con diferente rareza/elemento? (Responde: si / no)",
-    "tipo_arma": "¿Tu personaje utiliza un arma tipo lanza o guantes? (Responde: lanza / guantes / espada_ligera / ...)",
-    "color_pelo_dominante": "¿El color de pelo de tu personaje es principalmente verde, azul, o blanco? (Responde: verde / azul / blanco / otros)",
+    "tiene_forma_alterna": {
+        "texto": "¿Tu personaje tiene una versión alternativa (ej. Dan Heng IL)?",
+        "respuestas": ["si", "no"]
+    },
+    "tipo_arma": {
+        "texto": "¿Qué tipo de arma visualmente distintiva usa tu personaje?",
+        "respuestas": ["lanza", "guantes", "espada_ligera", "libro", "otro"]
+    },
+    "color_pelo_dominante": {
+        "texto": "¿Cuál es el color de pelo dominante de tu personaje?",
+        "respuestas": ["blanco", "rojo", "azul", "verde", "otro"]
+    },
 }
 
 def inicializar_juego():
@@ -55,8 +84,8 @@ def inicio():
 def jugar():
     # --- PROCESAR RESPUESTA ANTERIOR ---
     if request.method == 'POST':
-        # La respuesta debe ser el valor del atributo (ej: 'femenino', 'fuego', 'caza', etc.)
-        respuesta_usuario = request.form.get('respuesta').lower().strip().replace(" ", "_") 
+        # La respuesta ahora viene del valor de un botón, ya no es necesario procesar el texto.
+        respuesta_usuario = request.form.get('respuesta')
         
         atributo_clave = session.get('pregunta_actual')
         
@@ -97,10 +126,11 @@ def jugar():
     
     # Caso 3: Continúa el juego.
     session['pregunta_actual'] = siguiente_clave
-    pregunta_texto = PREGUNTAS[siguiente_clave]
+    pregunta_actual = PREGUNTAS[siguiente_clave]
     
     return render_template('juego_prolog.html', 
-                           pregunta=pregunta_texto, 
+                           pregunta=pregunta_actual['texto'], 
+                           respuestas=pregunta_actual['respuestas'],
                            clave_atributo=siguiente_clave,
                            candidatos_restantes=len(candidatos_restantes))
 

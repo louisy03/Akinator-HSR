@@ -14,11 +14,12 @@
         <h2>Transmisión Recibida:</h2>
         <p>{{ pregunta }}</p>
         
-        <p><em>Recuerda, la respuesta debe ser un término simple en minúsculas (Ej: femenino, caza, cinco_estrellas).</em></p>
-
         <form method="POST">
-            <input type="text" id="respuesta" name="respuesta" placeholder="Escribe el átomo de tu respuesta..." required> 
-            <button type="submit">Continuar el Viaje</button>
+            <div class="button-container">
+                {% for respuesta in respuestas %}
+                    <button type="submit" name="respuesta" value="{{ respuesta }}">{{ respuesta.replace("_", " ")|title }}</button>
+                {% endfor %}
+            </div>
         </form>
 
         <a href="/">Empezar un nuevo viaje</a>
