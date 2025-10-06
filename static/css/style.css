@@ -1,118 +1,181 @@
 /* honkai-akinator/static/css/style.css */
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #e6e6e6; /* Blanco suave para el texto */
-    margin: 0;
-    padding: 40px;
-    text-align: center;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: #e6e6e6; /* Blanco suave para el texto */
+	margin: 0;
+	padding: 40px;
+	text-align: center;
 }
 
 .video-background {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    object-fit: cover; /* Asegura que el video cubra todo el espacio sin deformarse */
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	object-fit: cover; /* Asegura que el video cubra todo el espacio sin deformarse */
 }
 
 /* Capa oscura semitransparente para mejorar la legibilidad del texto */
 body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(13, 17, 23, 0.7); /* Color de fondo original, pero con 70% de opacidad */
-    z-index: -99;
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(13, 17, 23, 0.7); /* Color de fondo original, pero con 70% de opacidad */
+	z-index: -99;
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #161b22; /* Panel central oscuro */
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 0 20px rgba(70, 130, 180, 0.4); /* Sombra azul tenue */
-    border: 1px solid #30363d;
-    position: relative; /* Asegura que el contenido esté sobre el video y la capa */
+	max-width: 600px;
+	margin: 0 auto;
+	background-color: #161b22; /* Panel central oscuro */
+	border-radius: 15px;
+	padding: 30px;
+	box-shadow: 0 0 20px rgba(70, 130, 180, 0.4); /* Sombra azul tenue */
+	border: 1px solid #30363d;
+	position: relative; /* Asegura que el contenido esté sobre el video y la capa */
 }
 h1 {
-    color: #ffd700; /* Dorado para títulos principales */
-    font-size: 1.8em;
-    border-bottom: 2px solid #30363d;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+	color: #ffd700; /* Dorado para títulos principales */
+	font-size: 1.8em;
+	border-bottom: 2px solid #30363d;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
 }
 h2 {
-    color: #79b8ff; /* Azul brillante para preguntas y mensajes */
-    font-size: 1.5em;
-    margin-top: 0;
+	color: #79b8ff; /* Azul brillante para preguntas y mensajes */
+	font-size: 1.5em;
+	margin-top: 0;
 }
 p {
-    color: #a8b3cf;
-    line-height: 1.6;
+	color: #a8b3cf;
+	line-height: 1.6;
 }
 input[type="text"] {
-    background-color: #21262d;
-    color: #e6e6e6;
-    border: 1px solid #48536b;
-    width: 70%;
-    max-width: 300px;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 8px;
-    font-size: 1em;
+	background-color: #21262d;
+	color: #e6e6e6;
+	border: 1px solid #48536b;
+	width: 70%;
+	max-width: 300px;
+	padding: 10px 15px;
+	margin: 5px;
+	border-radius: 8px;
+	font-size: 1em;
 }
 .button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 20px;
 }
 button {
-    background-color: #21262d; /* Fondo oscuro para botones */
-    color: white;
-    border: 1px solid #30363d;
-    cursor: pointer;
-    padding: 12px 20px;
-    margin: 5px;
-    border-radius: 8px;
-    font-size: 1em;
-    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
-    text-transform: capitalize;
+	background-color: #21262d; /* Fondo oscuro para botones */
+	color: white;
+	border: 1px solid #30363d;
+	cursor: pointer;
+	padding: 12px 20px;
+	margin: 5px;
+	border-radius: 8px;
+	font-size: 1em;
+	transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+	text-transform: capitalize;
 }
 button:hover {
-    background-color: #30363d;
-    border-color: #79b8ff; /* Borde azul al pasar el ratón */
-    transform: translateY(-2px);
+	background-color: #30363d;
+	border-color: #79b8ff; /* Borde azul al pasar el ratón */
+	transform: translateY(-2px);
 }
 a {
-    color: #ffd700; /* Enlaces en dorado */
-    text-decoration: none;
-    margin-top: 20px;
-    display: block;
+	color: #ffd700; /* Enlaces en dorado */
+	text-decoration: none;
+	margin-top: 20px;
+	display: block;
 }
 a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 em {
-    color: #f08080; /* Rojo suave para las notas de formato */
+	color: #f08080; /* Rojo suave para las notas de formato */
 }
 .success {
-    color: #4CAF50; /* Verde de éxito */
+	color: #4CAF50; /* Verde de éxito */
 }
 .failure {
-    color: #ff6347; /* Rojo de fallo */
+	color: #ff6347; /* Rojo de fallo */
 }
 .character-name {
-    font-size: 1.8em;
-    color: #ffd700; /* Dorado, como los títulos */
-    margin: 20px 0;
+	font-size: 1.8em;
+	color: #ffd700; /* Dorado, como los títulos */
+	margin: 20px 0;
+}
+
+/* --- Pantalla de Carga --- */
+.loader-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #0d1117; /* Fondo oscuro sólido */
+	z-index: 9999;
+	display: flex; /* Visible por defecto */
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.5s ease-out; /* Transición suave para desaparecer */
+	opacity: 1;
+}
+
+.loader-overlay.hidden {
+	/* Clase para ocultar el loader con una transición */
+	opacity: 0;
+	pointer-events: none; /* Evita que la capa invisible bloquee los clics */
+}
+
+.loader-spinner {
+	border: 8px solid #30363d; /* Anillo gris */
+	border-top: 8px solid #79b8ff; /* Segmento azul brillante */
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* --- Video de Celebración --- */
+.celebration-video {
+	position: fixed;
+	bottom: -6vh; /* Usamos vh (altura de la ventana) para que el desplazamiento sea relativo */
+	right: -10vw; /* Usamos vw (ancho de la ventana) para que el desplazamiento sea relativo */
+	/* transform: translateX(-50%); <-- Ya no es necesario */
+	max-width: 55%; /* Aumentamos el tamaño del video */
+	max-height: 85vh; /* Ocupa como máximo el 85% de la altura de la pantalla */
+	z-index: 10; /* Por encima del fondo pero por debajo del contenedor de texto si se superponen */
+	pointer-events: none; /* Permite hacer clic "a través" del video */
+}
+
+/* --- Estilos para Móviles (Responsive Design) --- */
+@media (max-width: 768px) {
+	.celebration-video {
+		/* En móvil, lo centramos en la parte inferior */
+		left: 50%;
+		transform: translateX(-50%);
+		right: auto; /* Anulamos el posicionamiento a la derecha */
+		bottom: -5vh; /* Lo bajamos un poco para que no quede pegado al borde */
+
+		/* Hacemos el video más grande en la vista móvil */
+		max-width: 90%;
+		max-height: 60vh;
+	}
 }

@@ -1,6 +1,7 @@
 // static/js/video_control.js
 
 document.addEventListener("DOMContentLoaded", function() {
+    const loaderOverlay = document.getElementById("loader-overlay");
     const video = document.getElementById("video-background");
     if (!video) return;
 
@@ -16,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (playPromise !== undefined) {
             playPromise.then(_ => {
+                // El video ha comenzado a reproducirse, ahora podemos ocultar el loader.
+                if (loaderOverlay) {
+                    loaderOverlay.classList.add("hidden");
+                }
                 // La reproducción automática comenzó correctamente.
             }).catch(error => {
                 // La reproducción automática fue prevenida.

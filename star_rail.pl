@@ -15,6 +15,7 @@ personaje(himeko, tiene_forma_alterna, no).
 personaje(himeko, tipo_arma, libro). % Asumiendo un objeto tipo libro/cáliz
 personaje(himeko, color_pelo_dominante, rojo).
 
+
 % Welt
 personaje(welt, origen_historia, expreso_astral).
 personaje(welt, genero, masculino).

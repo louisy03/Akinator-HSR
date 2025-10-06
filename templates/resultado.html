@@ -5,13 +5,26 @@
     <title>Resultado del Viaje</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/video_control.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/chroma_key.js') }}" defer></script>
 </head>
 <body>
+    <div id="loader-overlay" class="loader-overlay">
+        <div class="loader-spinner"></div>
+    </div>
     <video autoplay muted loop id="video-background" class="video-background">
         <!-- Asegúrate de que la ruta al video es correcta -->
         <source src="{{ url_for('static', filename='videos/background.mp4') }}" type="video/mp4">
         Tu navegador no soporta videos de fondo.
     </video>
+
+    {% if adivinado %}
+        <!-- Canvas donde se mostrará el video sin fondo -->
+        <canvas id="celebration-canvas" class="celebration-video"></canvas>
+        <!-- Video oculto con fondo verde que sirve como fuente -->
+        <video id="celebration-video-source" loop muted playsinline style="display: none;">
+            <source src="{{ url_for('static', filename='videos/celebration.mp4') }}" type="video/mp4" />
+        </video>
+    {% endif %}
     <div class="container">
         <h1>🛰️ Bitácora Final de la Adivinanza 🛰️</h1>
 
@@ -30,7 +43,7 @@
             {% endif %}
         {% endif %}
 
-        <a href="/">Volver a empezar la aventura</a>
+        <a href="/" class="restart-link">Volver a empezar la aventura</a>
     </div>
 </body>
 </html>

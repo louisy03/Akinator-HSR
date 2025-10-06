@@ -8,6 +8,9 @@
     <script src="{{ url_for('static', filename='js/game_logic.js') }}" defer></script>
 </head>
 <body>
+    <div id="loader-overlay" class="loader-overlay">
+        <div class="loader-spinner"></div>
+    </div>
     <video autoplay muted loop id="video-background" class="video-background">
         <!-- Asegúrate de que la ruta al video es correcta -->
         <source src="{{ url_for('static', filename='videos/background.mp4') }}" type="video/mp4">
@@ -29,7 +32,7 @@
             </div>
         </form>
 
-        <a href="/">Empezar un nuevo viaje</a>
+        <a href="/" class="restart-link">Empezar un nuevo viaje</a>
     </div>
 </body>
 </html>
