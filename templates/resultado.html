@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <title>Resultado del Viaje</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/video_control.js') }}" defer></script>
 </head>
 <body>
+    <video autoplay muted loop id="video-background" class="video-background">
+        <!-- Asegúrate de que la ruta al video es correcta -->
+        <source src="{{ url_for('static', filename='videos/background.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos de fondo.
+    </video>
     <div class="container">
         <h1>🛰️ Bitácora Final de la Adivinanza 🛰️</h1>
 
-        {% if adivinado %}
+        {% if adivinado and personaje %}
             <h2 class="success">🎉 ¡Éxito en el Viaje! ¡Lo tengo! 🎉</h2>
-            <p style="font-size: 1.8em;">Estabas pensando en **{{ personaje }}**.</p>
+            <p class="character-name">Estabas pensando en <strong>{{ personaje }}</strong>.</p>
             <p>El Genio del Expreso Astral ha demostrado su conocimiento de la galaxia. ¡Sube al Tren!</p>
         {% else %}
             <h2 class="failure">😔 ¡Error de Navegación! ¡Me has superado! 😔</h2>
-            <p>Se me acabaron las preguntas, o no pude filtrar la información correctamente.</p>
+            <p>Se me acabaron las preguntas o no pude filtrar la información correctamente.</p>
             {% if candidatos %}
                 <p>Los posibles candidatos restantes eran: **{{ candidatos|join(', ') }}**.</p>
                 <p>Mi base de conocimiento necesita una actualización urgente. ¿En quién pensabas?</p>

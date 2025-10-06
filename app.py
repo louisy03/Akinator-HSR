@@ -1,6 +1,6 @@
 # honkai-akinator/app.py
 
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 from pyswip import Prolog
 
 app = Flask(__name__)
@@ -13,51 +13,21 @@ prolog = Prolog()
 prolog.consult("star_rail.pl") 
 
 # Definición de las preguntas en el orden en que se harán.
-# Ahora cada pregunta tiene un texto y una lista de respuestas posibles.
+# Las respuestas se obtendrán dinámicamente de Prolog.
 PREGUNTAS = {
     # PRIORIDAD ALTA
-    "origen_historia": {
-        "texto": "¿De qué facción principal es tu personaje?",
-        "respuestas": ["expreso_astral", "xianzhou", "belobog", "otros"]
-    },
-    "genero": {
-        "texto": "¿Tu personaje es de género femenino o masculino?",
-        "respuestas": ["femenino", "masculino"]
-    },
-    "rareza": {
-        "texto": "¿Tu personaje es de 5 estrellas o 4 estrellas?",
-        "respuestas": ["cinco_estrellas", "cuatro_estrellas"]
-    },
-    "via": {
-        "texto": "¿Cuál es la Vía de tu personaje?",
-        "respuestas": ["caza", "erudicion", "destruccion", "conservacion", "armonia", "nihilidad", "abundancia"]
-    },
-    "elemento": {
-        "texto": "¿Cuál es el elemento de tu personaje?",
-        "respuestas": ["fuego", "hielo", "viento", "rayo", "fisico", "quantico", "imaginario"]
-    },
+    "origen_historia": "¿De qué facción principal es tu personaje?",
+    "genero": "¿Tu personaje es de género femenino o masculino?",
+    "rareza": "¿Tu personaje es de 5 estrellas o 4 estrellas?",
+    "via": "¿Cuál es la Vía de tu personaje?",
+    "elemento": "¿Cuál es el elemento de tu personaje?",
     # PRIORIDAD MEDIA
-    "rol_secundario": {
-        "texto": "¿Tiene tu personaje un rol de soporte secundario notable?",
-        "respuestas": ["shielder", "healer", "buffer", "debuffer", "no_aplica"]
-    },
-    "escalado_dano": {
-        "texto": "¿El daño del personaje escala principalmente con HP o DEF en lugar de ATK?",
-        "respuestas": ["hp", "def", "atk"]
-    },
+    "rol_secundario": "¿Tiene tu personaje un rol de soporte secundario notable?",
+    "escalado_dano": "¿El daño del personaje escala principalmente con HP o DEF en lugar de ATK?",
     # PRIORIDAD BAJA (Desempate)
-    "tiene_forma_alterna": {
-        "texto": "¿Tu personaje tiene una versión alternativa (ej. Dan Heng IL)?",
-        "respuestas": ["si", "no"]
-    },
-    "tipo_arma": {
-        "texto": "¿Qué tipo de arma visualmente distintiva usa tu personaje?",
-        "respuestas": ["lanza", "guantes", "espada_ligera", "libro", "otro"]
-    },
-    "color_pelo_dominante": {
-        "texto": "¿Cuál es el color de pelo dominante de tu personaje?",
-        "respuestas": ["blanco", "rojo", "azul", "verde", "otro"]
-    },
+    "tiene_forma_alterna": "¿Tu personaje tiene una versión alternativa (ej. Dan Heng IL)?",
+    "tipo_arma": "¿Qué tipo de arma visualmente distintiva usa tu personaje?",
+    "color_pelo_dominante": "¿Cuál es el color de pelo dominante de tu personaje?",
 }
 
 def inicializar_juego():
@@ -83,6 +53,11 @@ def inicio():
 @app.route('/jugar', methods=['GET', 'POST'])
 def jugar():
     # --- PROCESAR RESPUESTA ANTERIOR ---
+    # Si es un GET, es la primera carga de la página, así que inicializamos.
+    if request.method == 'GET' and 'requisitos' not in session:
+        inicializar_juego()
+
+
     if request.method == 'POST':
         # La respuesta ahora viene del valor de un botón, ya no es necesario procesar el texto.
         respuesta_usuario = request.form.get('respuesta')
@@ -114,25 +89,59 @@ def jugar():
     # Caso 1: ¡Adivinanza! Queda solo 1 candidato.
     if len(candidatos_restantes) == 1:
         # Formateamos el nombre (ej: 'dan_heng' -> 'Dan Heng')
-        personaje_adivinado = candidatos_restantes[0].replace("_", " ").title()
-        return render_template('resultado.html', adivinado=True, personaje=personaje_adivinado)
+        personaje_crudo = candidatos_restantes[0]
+        session['resultado'] = {'adivinado': True, 'personaje': personaje_crudo.replace("_", " ").title()}
+        if request.method == 'POST':
+            return jsonify({'status': 'success', 'redirect_url': url_for('resultado')})
+        return redirect(url_for('resultado'))
         
     # Caso 2: Se acabaron las preguntas o no quedan candidatos.
     siguiente_clave = obtener_siguiente_pregunta()
     if not siguiente_clave:
         # Formateamos los nombres para el resultado
         candidatos_formateados = [c.replace("_", " ").title() for c in candidatos_restantes]
-        return render_template('resultado.html', adivinado=False, candidatos=candidatos_formateados)
+        session['resultado'] = {'adivinado': False, 'candidatos': candidatos_formateados}
+        if request.method == 'POST':
+            return jsonify({'status': 'failure', 'redirect_url': url_for('resultado')})
+        return redirect(url_for('resultado'))
     
-    # Caso 3: Continúa el juego.
+    # --- PREPARAR SIGUIENTE PREGUNTA ---
     session['pregunta_actual'] = siguiente_clave
-    pregunta_actual = PREGUNTAS[siguiente_clave]
+    pregunta_texto = PREGUNTAS[siguiente_clave]
+
+    # Caso 3: Continúa el juego.
+    # --- OBTENER RESPUESTAS POSIBLES DESDE PROLOG ---
+    # Consulta: findall(Valor, personaje(_, atributo, Valor), Valores), sort(Valores, RespuestasUnicas).
+    # `sort/2` en Prolog ordena y elimina duplicados.
+    query_respuestas = f"findall(V, personaje(_, {siguiente_clave}, V), Vs), sort(Vs, Respuestas)"
+    resultados_respuestas = list(prolog.query(query_respuestas))
     
-    return render_template('juego_prolog.html', 
-                           pregunta=pregunta_actual['texto'], 
-                           respuestas=pregunta_actual['respuestas'],
-                           clave_atributo=siguiente_clave,
+    respuestas_posibles = []
+    if resultados_respuestas:
+        respuestas_posibles = [str(r) for r in resultados_respuestas[0]['Respuestas']]
+    
+    # Si es un POST, devolvemos JSON para la actualización asíncrona.
+    if request.method == 'POST':
+        return jsonify({
+            'status': 'continue',
+            'pregunta': pregunta_texto,
+            'respuestas': respuestas_posibles,
+            'candidatos_restantes': len(candidatos_restantes)
+        })
+
+    # Si es un GET, renderizamos la página completa por primera vez.
+    return render_template('juego_prolog.html',
+                           pregunta=pregunta_texto,
+                           respuestas=respuestas_posibles,
                            candidatos_restantes=len(candidatos_restantes))
+
+@app.route('/resultado')
+def resultado():
+    """Muestra la página de resultados usando los datos de la sesión."""
+    datos_resultado = session.pop('resultado', None)
+    if not datos_resultado:
+        return redirect(url_for('inicio')) # Si no hay resultado, volver al inicio
+    return render_template('resultado.html', **datos_resultado)
 
 if __name__ == '__main__':
     # Usar un host específico para evitar problemas en algunos entornos de desarrollo

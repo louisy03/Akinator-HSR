@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <title>Akinator HSR: Expreso Astral</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/video_control.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/game_logic.js') }}" defer></script>
 </head>
 <body>
+    <video autoplay muted loop id="video-background" class="video-background">
+        <!-- Asegúrate de que la ruta al video es correcta -->
+        <source src="{{ url_for('static', filename='videos/background.mp4') }}" type="video/mp4">
+        Tu navegador no soporta videos de fondo.
+    </video>
     <div class="container">
         <h1>✨ Genio de la Curiosidad del Expreso Astral ✨</h1>
         
-        <p>Quedan **{{ candidatos_restantes }}** posibles candidatos en la Base de Datos.</p>
+        <p>Quedan <strong id="candidates-count">{{ candidatos_restantes }}</strong> posibles candidatos en la Base de Datos.</p>
 
         <h2>Transmisión Recibida:</h2>
-        <p>{{ pregunta }}</p>
+        <p id="question-text">{{ pregunta }}</p>
         
-        <form method="POST">
-            <div class="button-container">
+        <form id="game-form" method="POST" action="{{ url_for('jugar') }}">
+            <div id="button-container" class="button-container">
                 {% for respuesta in respuestas %}
                     <button type="submit" name="respuesta" value="{{ respuesta }}">{{ respuesta.replace("_", " ")|title }}</button>
                 {% endfor %}
