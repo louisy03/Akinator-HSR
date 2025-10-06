@@ -3,15 +3,17 @@
 % --- HECHOS: personaje(Nombre, Atributo, Valor). ---
 % Todos los valores DEBEN ser átomos (minúsculas, sin espacios o usando guiones bajos).
 
+% Expreso Astral
+
 % Himeko
 personaje(himeko, origen_historia, expreso_astral).
 personaje(himeko, genero, femenino).
 personaje(himeko, rareza, cinco_estrellas).
 personaje(himeko, via, erudicion).
 personaje(himeko, elemento, fuego).
-personaje(himeko, rol, sub_dps). % DPS puro
+personaje(himeko, rol, sub_dps).
 personaje(himeko, tipo_modelo, alto).
-personaje(himeko, escalado, atk).
+personaje(himeko, escalado, ataque).
 personaje(himeko, tiene_forma_alterna, no).
 personaje(himeko, color_pelo_dominante, rojo).
 
@@ -23,21 +25,21 @@ personaje(welt, via, nihilidad).
 personaje(welt, elemento, imaginario).
 personaje(welt, rol, debuffer).
 personaje(welt, tipo_modelo, alto).
-personaje(welt, escalado, atk).
+personaje(welt, escalado, ataque).
 personaje(welt, tiene_forma_alterna, no).
-personaje(welt, color_pelo_dominante, otro). % Negro/Gris
+personaje(welt, color_pelo_dominante, cafe).
 
 % Dan Heng
 personaje(dan_heng, origen_historia, expreso_astral).
 personaje(dan_heng, genero, masculino).
 personaje(dan_heng, rareza, cuatro_estrellas).
-personaje(dan_heng, via, caza).
+personaje(dan_heng, via, caceria).
 personaje(dan_heng, elemento, viento).
 personaje(dan_heng, rol, dps).
 personaje(dan_heng, tipo_modelo, alto).
-personaje(dan_heng, escalado, atk).
-personaje(dan_heng, tiene_forma_alterna, si). % Imbibitor Lunae
-personaje(dan_heng, color_pelo_dominante, otro). % Negro
+personaje(dan_heng, escalado, ataque).
+personaje(dan_heng, tiene_forma_alterna, si).
+personaje(dan_heng, color_pelo_dominante, negro).
 
 % March 7th
 personaje(march_7th, origen_historia, expreso_astral).
@@ -48,18 +50,70 @@ personaje(march_7th, elemento, hielo).
 personaje(march_7th, rol, shielder).
 personaje(march_7th, tipo_modelo, mediano).
 personaje(march_7th, escalado, def).
-personaje(march_7th, tiene_forma_alterna, no).
-personaje(march_7th, color_pelo_dominante, otro). % Rosa
+personaje(march_7th, tiene_forma_alterna, si).
+personaje(march_7th, color_pelo_dominante, rosa).
+
+% Estacion Espacial de The_Herta
+
+% Herta
+personaje(herta, origen_historia, estacion_espacial_de_herta).
+personaje(herta, genero, femenino).
+personaje(herta, rareza, cuatro_estrellas).
+personaje(herta, via, erudicion).
+personaje(herta, elemento, hielo).
+personaje(herta, tipo_modelo, chico).
+personaje(herta, rol, sub_dps).
+personaje(herta, escalado, ataque).
+personaje(herta, tiene_forma_alterna, si).
+personaje(herta, color_pelo_dominante, gris).
+
+% Asta
+personaje(asta, origen_historia, estacion_espacial_de_herta).
+personaje(asta, genero, femenino).
+personaje(asta, rareza, cuatro_estrellas).
+personaje(asta, via, armonia).
+personaje(asta, elemento, fuego).
+personaje(asta, tipo_modelo, mediano).
+personaje(asta, rol, buffer).
+personaje(asta, escalado, ataque).
+personaje(asta, tiene_forma_alterna, no).
+personaje(asta, color_pelo_dominante, rosa).
+
+% Arlan
+personaje(arlan, origen_historia, estacion_espacial_de_herta).
+personaje(arlan, genero, masculino). % Corregido
+personaje(arlan, rareza, cuatro_estrellas).
+personaje(arlan, via, destruccion).
+personaje(arlan, elemento, electrico).
+personaje(arlan, tipo_modelo, chico).
+personaje(arlan, rol, dps).
+personaje(arlan, escalado, vida).
+personaje(arlan, tiene_forma_alterna, no).
+personaje(arlan, color_pelo_dominante, gris).
+
+% The_Herta
+personaje(the_herta, origen_historia, estacion_espacial_de_herta).
+personaje(the_herta, genero, femenino).
+personaje(the_herta, rareza, cinco_estrellas).
+personaje(the_herta, via, erudicion).
+personaje(the_herta, elemento, hielo).
+personaje(the_herta, tipo_modelo, alto).
+personaje(the_herta, rol, dps).
+personaje(the_herta, escalado, ataque).
+personaje(the_herta, tiene_forma_alterna, si).
+personaje(the_herta, color_pelo_dominante, gris).
+
+% Belobog
 
 % Seele
 personaje(seele, origen_historia, belobog).
 personaje(seele, genero, femenino).
 personaje(seele, rareza, cinco_estrellas).
-personaje(seele, via, caza).
+personaje(seele, via, caceria).
 personaje(seele, elemento, quantico).
 personaje(seele, rol, dps).
 personaje(seele, tipo_modelo, mediano).
-personaje(seele, escalado, atk).
+personaje(seele, escalado, ataque).
 personaje(seele, tiene_forma_alterna, no).
 personaje(seele, color_pelo_dominante, azul).
 
@@ -71,9 +125,93 @@ personaje(bronya, via, armonia).
 personaje(bronya, elemento, viento).
 personaje(bronya, rol, buffer).
 personaje(bronya, tipo_modelo, mediano).
-personaje(bronya, escalado, atk). % Su buff escala con su Daño CRIT, pero su daño base es ATK
+personaje(bronya, escalado, ataque).
 personaje(bronya, tiene_forma_alterna, no).
 personaje(bronya, color_pelo_dominante, blanco).
+
+% Pela
+personaje(pela, origen_historia, belobog).
+personaje(pela, genero, femenino).
+personaje(pela, rareza, cuatro_estrellas).
+personaje(pela, via, nihilidad).
+personaje(pela, elemento, hielo).
+personaje(pela, tipo_modelo, chico).
+personaje(pela, rol, debuffer).
+personaje(pela, escalado, ataque).
+personaje(pela, tiene_forma_alterna, no).
+personaje(pela, color_pelo_dominante, azul).
+
+% Serval
+personaje(serval, origen_historia, belobog).
+personaje(serval, genero, femenino). % Corregido
+personaje(serval, rareza, cuatro_estrellas).
+personaje(serval, via, erudicion).
+personaje(serval, elemento, electrico).
+personaje(serval, tipo_modelo, alto).
+personaje(serval, rol, sub_dps).
+personaje(serval, escalado, ataque).
+personaje(serval, tiene_forma_alterna, no).
+personaje(serval, color_pelo_dominante, rubio).
+
+% Gepard
+personaje(gepard, origen_historia, belobog).
+personaje(gepard, genero, masculino).
+personaje(gepard, rareza, cinco_estrellas).
+personaje(gepard, via, conservacion).
+personaje(gepard, elemento, hielo).
+personaje(gepard, tipo_modelo, alto).
+personaje(gepard, rol, shielder).
+personaje(gepard, escalado, defensa).
+personaje(gepard, tiene_forma_alterna, no).
+personaje(gepard, color_pelo_dominante, rubio).
+
+% Natasha
+personaje(natasha, origen_historia, belobog).
+personaje(natasha, genero, femenino).
+personaje(natasha, rareza, cuatro_estrellas).
+personaje(natasha, via, abundancia).
+personaje(natasha, elemento, fisico).
+personaje(natasha, tipo_modelo, alto).
+personaje(natasha, rol, healer).
+personaje(natasha, escalado, vida).
+personaje(natasha, tiene_forma_alterna, no).
+personaje(natasha, color_pelo_dominante, gris_oscuro).
+
+% Hook
+personaje(hook, origen_historia, belobog).
+personaje(hook, genero, femenino).
+personaje(hook, rareza, cuatro_estrellas).
+personaje(hook, via, destruccion).
+personaje(hook, elemento, fuego).
+personaje(hook, tipo_modelo, chico).
+personaje(hook, rol, dps).
+personaje(hook, escalado, ataque).
+personaje(hook, tiene_forma_alterna, no).
+personaje(hook, color_pelo_dominante, rubio).
+
+% Clara
+personaje(clara, origen_historia, belobog).
+personaje(clara, genero, femenino).
+personaje(clara, rareza, cinco_estrellas).
+personaje(clara, via, destruccion).
+personaje(clara, elemento, fisico).
+personaje(clara, tipo_modelo, chico).
+personaje(clara, rol, dps).
+personaje(clara, escalado, ataque).
+personaje(clara, tiene_forma_alterna, no).
+personaje(clara, color_pelo_dominante, blanco).
+
+% Sampo
+personaje(sampo, origen_historia, belobog).
+personaje(sampo, genero, masculino).
+personaje(sampo, rareza, cuatro_estrellas).
+personaje(sampo, via, nihilidad).
+personaje(sampo, elemento, viento).
+personaje(sampo, tipo_modelo, alto).
+personaje(sampo, rol, debuffer).
+personaje(sampo, escalado, ataque).
+personaje(sampo, tiene_forma_alterna, no).
+personaje(sampo, color_pelo_dominante, azul).
 
 % Cazador estelaron
 
@@ -240,7 +378,7 @@ personaje(jade, color_pelo_dominante, violeta)
 % Vigilantes de la gaxia
 
 % Rappa
-personaje(rappa, origen_historia, )
+personaje(rappa, origen_historia, colonipenal)
 personaje(rappa, genero, femenino)
 personaje(rappa, rareza, cinco_estrellas)
 personaje(rappa, via, erudicion)
@@ -252,7 +390,7 @@ personaje(rappa, tiene_forma_alterna, no)
 personaje(rappa, color_pelo_dominante, rosa)
 
 % Bothill
-personaje(bothill, origen_historia, )
+personaje(bothill, origen_historia, colonipenal)
 personaje(bothill, genero, masculino)
 personaje(bothill, rareza, cinco_estrellas)
 personaje(bothill, via, caceria)
@@ -276,6 +414,68 @@ personaje(hysilens, tipo_modelo, alto)
 personaje(hysilens, escalado, ataque)
 personaje(hysilens, tiene_forma_alterna, no)
 personaje(hysilens, color_pelo_dominante, negro)
+
+% Amporeous
+
+% Medeimos
+personaje(medeimos, origen_historia, amporeous).
+personaje(medeimos, genero, masculino).
+personaje(medeimos, rareza, cinco_estrellas).
+personaje(medeimos, via, destruccion).
+personaje(medeimos, elemento, imaginario).
+personaje(medeimos, tipo_modelo, alto).
+personaje(medeimos, rol, dps).
+personaje(medeimos, escalado, vida).
+personaje(medeimos, tiene_forma_alterna, no).
+personaje(medeimos, color_pelo_dominante, rubio).
+
+% Tribbie
+personaje(tribbie, origen_historia, amporeous).
+personaje(tribbie, genero, femenino).
+personaje(tribbie, rareza, cinco_estrellas).
+personaje(tribbie, via, armonia).
+personaje(tribbie, elemento, quantico).
+personaje(tribbie, tipo_modelo, chico).
+personaje(tribbie, rol, buffer).
+personaje(tribbie, escalado, vida).
+personaje(tribbie, tiene_forma_alterna, no).
+personaje(tribbie, color_pelo_dominante, rojo).
+
+% Aglea
+personaje(aglea, origen_historia, amporeous).
+personaje(aglea, genero, femenino).
+personaje(aglea, rareza, cinco_estrellas).
+personaje(aglea, via, reminiscencia).
+personaje(aglea, elemento, electrico).
+personaje(aglea, tipo_modelo, alto).
+personaje(aglea, rol, dps).
+personaje(aglea, escalado, ataque).
+personaje(aglea, tiene_forma_alterna, no).
+personaje(aglea, color_pelo_dominante, rubio).
+
+% Castorice
+personaje(castorice, origen_historia, amporeous).
+personaje(castorice, genero, femenino).
+personaje(castorice, rareza, cinco_estrellas).
+personaje(castorice, via, reminiscencia).
+personaje(castorice, elemento, quantico).
+personaje(castorice, tipo_modelo, alto).
+personaje(castorice, rol, dps).
+personaje(castorice, escalado, vida).
+personaje(castorice, tiene_forma_alterna, no).
+personaje(castorice, color_pelo_dominante, purpura).
+
+% Hyacine
+personaje(hyacine, origen_historia, amporeous).
+personaje(hyacine, genero, femenino).
+personaje(hyacine, rareza, cinco_estrellas).
+personaje(hyacine, via, reminiscencia).
+personaje(hyacine, elemento, viento).
+personaje(hyacine, tipo_modelo, mediano).
+personaje(hyacine, rol, healer).
+personaje(hyacine, escalado, vida).
+personaje(hyacine, tiene_forma_alterna, no).
+personaje(hyacine, color_pelo_dominante, rosa).
 
 % -------------------------------------------------------------------
 % --- REGLAS: Logica central del Akinator ---
