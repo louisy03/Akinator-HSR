@@ -47,29 +47,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    const restartButton = document.getElementById('restart-button');
-    if (restartButton) {
-        restartButton.addEventListener('click', function () {
-            // Opcional: Muestra un loader si lo deseas
-            const loader = document.getElementById('loader-overlay');
-            if(loader) loader.classList.remove('hidden');
-
-            fetch('/reiniciar', {
-                method: 'POST'
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    // Redirigir a la página de inicio que nos indica el servidor
-                    window.location.href = data.redirect_url;
-                }
-            })
-            .catch(error => {
-                console.error('Error al reiniciar el juego:', error);
-                // Opcional: Oculta el loader si hubo un error
-                if(loader) loader.classList.add('hidden');
-            });
-        });
-    }
-
 });

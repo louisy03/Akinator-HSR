@@ -150,15 +150,6 @@ def resultado():
         return redirect(url_for('inicio')) # Si no hay resultado, volver al inicio
     return render_template('resultado.html', **datos_resultado)
 
-@app.route('/reiniciar', methods=['POST'])
-def reiniciar():
-    """
-    Endpoint dedicado para limpiar la sesión y reiniciar el juego.
-    Responde con JSON para que sea manejado por JavaScript.
-    """
-    inicializar_juego()
-    return jsonify({'status': 'success', 'redirect_url': url_for('inicio')})
-
 if __name__ == '__main__':
     # Usar un host específico para evitar problemas en algunos entornos de desarrollo
     app.run(debug=True)
