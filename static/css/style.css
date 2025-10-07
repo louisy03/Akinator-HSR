@@ -10,8 +10,9 @@ body {
 
 .video-background {
 	position: fixed;
-	right: 0;
-	bottom: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	min-width: 100%;
 	min-height: 100%;
 	width: auto;
@@ -179,3 +180,96 @@ em {
 		max-height: 60vh;
 	}
 }
+
+
+.arg-container {
+    position: relative;
+    text-align: center;
+    color: #e0e0e0;
+    background-color: rgba(10, 0, 0, 0.75);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid #8b0000;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+    max-width: 700px;
+    margin: auto;
+}
+
+.arg-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,0) 50%, rgba(255,255,255,0.1) 50%);
+    background-size: 100% 4px;
+    opacity: 0.2;
+    animation: scanlines 4s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+}
+
+#glitch-content {
+    position: relative;
+    z-index: 1;
+}
+
+.glitch-layers {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.glitch-slice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+}
+
+.glitch-slice:nth-child(1) { text-shadow: -2px 0 #ff0000; }
+.glitch-slice:nth-child(2) { text-shadow: 2px 0 #00ff00; }
+.glitch-slice:nth-child(3) { text-shadow: 0 0 3px #0000ff; }
+
+.container-glitch-layers {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* Estilo base del bloque, sin borde ni sombra específicos */
+.container-glitch-block {
+    position: absolute;
+    background: rgba(10, 0, 0, 0.85); /* Un poco más opaco para que destaque */
+    display: none;
+}
+
+/* Estilos para los bloques de la izquierda */
+.glitch-block-left {
+    border-top: 1px solid #8b0000;
+    border-bottom: 1px solid #8b0000;
+    border-left: 1px solid #8b0000;
+    box-shadow: -5px 0 15px rgba(255, 0, 0, 0.7); /* Sin sombra derecha */
+}
+
+/* Estilos para los bloques de la derecha */
+.glitch-block-right {
+    border-top: 1px solid #8b0000;
+    border-bottom: 1px solid #8b0000;
+    border-right: 1px solid #8b0000;
+    box-shadow: 5px 0 15px rgba(255, 0, 0, 0.7); /* Sin sombra izquierda */
+}
+
+.failure-arg, .arg-text, .eye-svg {
+    position: relative;
+}
+
+.failure-arg { font-size: 2.2rem; color: #ff4d4d; text-shadow: 0 0 10px #ff0000, 0 0 5px #ffffff; margin-bottom: 1rem; font-family: 'Courier New', Courier, monospace; }
+.arg-text { font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.arg-text strong { color: #ffffff; font-weight: bold; }
+.eye-svg { fill: #ff4d4d; margin-bottom: 1rem; filter: drop-shadow(0 0 8px #ff0000); animation: pulse-red 4s infinite ease-in-out; }
+
+@keyframes scanlines { 0% { background-position: 0 0; } 100% { background-position: 0 100px; } }
+@keyframes pulse-red { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.05); opacity: 1; } }

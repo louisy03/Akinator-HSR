@@ -86,24 +86,31 @@ def jugar():
     
     # --- CHEQUEAR ESTADO DEL JUEGO ---
     
-    # Caso 1: ¡Adivinanza! Queda solo 1 candidato.
-    if len(candidatos_restantes) == 1:
-        # Formateamos el nombre (ej: 'dan_heng' -> 'Dan Heng')
-        personaje_crudo = candidatos_restantes[0]
-        session['resultado'] = {'adivinado': True, 'personaje': personaje_crudo.replace("_", " ").title()}
-        if request.method == 'POST':
-            return jsonify({'status': 'success', 'redirect_url': url_for('resultado')})
-        return redirect(url_for('resultado'))
-        
-    # Caso 2: Se acabaron las preguntas o no quedan candidatos.
     siguiente_clave = obtener_siguiente_pregunta()
-    if not siguiente_clave:
-        # Formateamos los nombres para el resultado
-        candidatos_formateados = [c.replace("_", " ").title() for c in candidatos_restantes]
-        session['resultado'] = {'adivinado': False, 'candidatos': candidatos_formateados}
+    
+    # CASO 1: FRACASO INMEDIATO (No quedan candidatos)
+    # Esta es la nueva condición que resuelve la lentitud.
+    if not candidatos_restantes and session['preguntas_hechas']:
+        session['resultado'] = {'adivinado': False, 'candidatos': []}
         if request.method == 'POST':
             return jsonify({'status': 'failure', 'redirect_url': url_for('resultado')})
         return redirect(url_for('resultado'))
+
+    # CASO 2: ÉXITO (Queda 1 candidato) o FRACASO FINAL (Se acabaron las preguntas)
+    if len(candidatos_restantes) == 1 or not siguiente_clave:
+        personaje_crudo = candidatos_restantes[0] if len(candidatos_restantes) == 1 else None
+        
+        if personaje_crudo: # Adivinanza
+            session['resultado'] = {'adivinado': True, 'personaje': personaje_crudo.replace("_", " ").title()}
+            if request.method == 'POST':
+                return jsonify({'status': 'success', 'redirect_url': url_for('resultado')})
+            return redirect(url_for('resultado'))
+        else: # Fracaso por falta de preguntas
+            candidatos_formateados = [c.replace("_", " ").title() for c in candidatos_restantes]
+            session['resultado'] = {'adivinado': False, 'candidatos': candidatos_formateados}
+            if request.method == 'POST':
+                return jsonify({'status': 'failure', 'redirect_url': url_for('resultado')})
+            return redirect(url_for('resultado'))
     
     # --- PREPARAR SIGUIENTE PREGUNTA ---
     session['pregunta_actual'] = siguiente_clave
@@ -142,6 +149,15 @@ def resultado():
     if not datos_resultado:
         return redirect(url_for('inicio')) # Si no hay resultado, volver al inicio
     return render_template('resultado.html', **datos_resultado)
+
+@app.route('/reiniciar', methods=['POST'])
+def reiniciar():
+    """
+    Endpoint dedicado para limpiar la sesión y reiniciar el juego.
+    Responde con JSON para que sea manejado por JavaScript.
+    """
+    inicializar_juego()
+    return jsonify({'status': 'success', 'redirect_url': url_for('inicio')})
 
 if __name__ == '__main__':
     # Usar un host específico para evitar problemas en algunos entornos de desarrollo

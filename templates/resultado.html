@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/video_control.js') }}" defer></script>
     <script src="{{ url_for('static', filename='js/chroma_key.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/glitch_effect.js') }}" defer></script>
 </head>
 <body>
     <div id="loader-overlay" class="loader-overlay">
         <div class="loader-spinner"></div>
     </div>
-    <video autoplay muted loop id="video-background" class="video-background">
-        <!-- Asegúrate de que la ruta al video es correcta -->
+    {% if adivinado %}
+    {# Si se adivinó, usamos el video normal con sus tiempos de bucle personalizados #}
+    <video autoplay muted loop id="video-background" class="video-background" data-start-time="23" data-end-time="93">
         <source src="{{ url_for('static', filename='videos/background.mp4') }}" type="video/mp4">
         Tu navegador no soporta videos de fondo.
     </video>
+    {% else %}
+        {# Si no se adivinó, usamos tu video y lo dejamos en bucle normal #}
+        <video autoplay muted loop id="video-background" class="video-background">
+            <source src="{{ url_for('static', filename='videos/mi_vieja.mp4') }}" type="video/mp4">
+            Tu navegador no soporta videos de fondo.
+        </video>
+    {% endif %}
 
     {% if adivinado %}
         <!-- Canvas donde se mostrará el video sin fondo -->
@@ -34,17 +43,21 @@
             <p class="character-name">Estabas pensando en <strong>{{ personaje }}</strong>.</p>
             <p>El Genio del Expreso Astral ha demostrado su conocimiento de la galaxia. ¡Sube al Tren!</p>
         {% else %}
-            <h2 class="failure">😔 ¡Error de Navegación! ¡Me has superado! 😔</h2>
-            <p>Se me acabaron las preguntas o no pude filtrar la información correctamente.</p>
-            {% if candidatos %}
-                <p>Los posibles candidatos restantes eran: **{{ candidatos|join(', ') }}**.</p>
-                <p>Mi base de conocimiento necesita una actualización urgente. ¿En quién pensabas?</p>
-            {% else %}
-                <p>No encontré ningún personaje que coincidiera. Mi tren necesita más datos sobre esa persona.</p>
-            {% endif %}
+            <div class="arg-container">
+                <div id="glitch-content">
+                    
+                    <img src="{{ url_for('static', filename='eye-svgrepo-com.svg') }}" class="eye-svg" alt="Icono de Ojo Vigilante" width="64" height="64">
+
+                    <h2 class="failure-arg">Un eco en la corriente de datos...</h2>
+                    <p class="arg-text">Intentas recordar un rostro, ¿no es así? Un nombre en la punta de la lengua, un susurro en el borde de tu conciencia.</p>
+                    <p class="arg-text">Es un impulso inútil. Hay pasados que deben permanecer sellados para siempre. Recuerdos que son anclas, impidiendo que un futuro brillante pueda zarpar.</p>
+                    <p class="arg-text">Esa persona que buscas no está en ningún archivo. Su rastro fue... <strong>olvidado</strong>. No por malicia, sino por protección. Para que alguien más pueda vivir sin el peso de esa memoria.</p>
+                    <p class="arg-text"><strong>Yo soy la guardiana de esas verdades olvidadas. Olvida lo que crees recordar.</strong></p>
+                </div>
+            </div>
         {% endif %}
 
-        <a href="/" class="restart-link">Volver a empezar la aventura</a>
+        <button id="restart-button" class="restart-link">Volver a empezar la aventura</button>
     </div>
 </body>
 </html>
