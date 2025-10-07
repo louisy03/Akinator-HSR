@@ -9,10 +9,10 @@
     <script src="{{ url_for('static', filename='js/game_logic.js') }}" defer></script>
 </head>
 <body>
-    <div id="loader-overlay" class="loader-overlay">
+   <div id="loader-overlay" class="loader-overlay">
         <div class="loader-spinner"></div>
     </div>
-    <video autoplay muted loop id="video-background" class="video-background">
+    <video autoplay muted loop id="video-background" data-start-time="23" data-end-time="93" class="video-background">
         <!-- Asegúrate de que la ruta al video es correcta -->
         <source src="{{ url_for('static', filename='videos/background.mp4') }}" type="video/mp4">
         Tu navegador no soporta videos de fondo.
