@@ -1,8 +1,3 @@
-% honkai-akinator/star_rail.pl
-
-% --- HECHOS: personaje(Nombre, Atributo, Valor). ---
-% Todos los valores DEBEN ser átomos (minúsculas, sin espacios o usando guiones bajos).
-
 % Expreso Astral
 
 % Himeko
@@ -233,7 +228,7 @@ personaje(kafka, genero, femenino).
 personaje(kafka, rareza, cinco_estrellas).
 personaje(kafka, via, nihilidad).
 personaje(kafka, elemento, electrico).
-personaje(kafka, rol, support). %se cambia rol_secundario por rol
+personaje(kafka, rol, support). 
 personaje(kafka, tipo_modelo, alto).
 personaje(kafka, escalado, ataque).
 personaje(kafka, tiene_forma_alterna, no).
@@ -245,8 +240,8 @@ personaje(silver_wolf, genero, femenino).
 personaje(silver_wolf, rareza, cinco_estrellas).
 personaje(silver_wolf, via, nihilidad).
 personaje(silver_wolf, elemento, cuantico).
-personaje(silver_wolf, rol, debuffer). %se cambia rol_secundario por rol
-personaje(silver_wolf, tipo_modelo, chico). %chico, mediano, alto
+personaje(silver_wolf, rol, debuffer). 
+personaje(silver_wolf, tipo_modelo, chico). 
 personaje(silver_wolf, escalado, ataque).
 personaje(silver_wolf, tiene_forma_alterna, no).
 personaje(silver_wolf, color_pelo_dominante, gris).
@@ -257,8 +252,8 @@ personaje(blade, genero, masculino).
 personaje(blade, rareza, cinco_estrellas).  
 personaje(blade, via, destruccion).
 personaje(blade, elemento, viento).
-personaje(blade, rol, dps). %se cambia rol_secundario por rol
-personaje(blade, tipo_modelo, alto). %chico, mediano, alto
+personaje(blade, rol, dps). 
+personaje(blade, tipo_modelo, alto). 
 personaje(blade, escalado, vida).
 personaje(blade, tiene_forma_alterna, no).
 personaje(blade, color_pelo_dominante, negro).
@@ -271,8 +266,8 @@ personaje(robin, genero, femenino).
 personaje(robin, rareza, cinco_estrellas).
 personaje(robin, via, armonia).
 personaje(robin, elemento, fisico).
-personaje(robin, rol, buffer). %se cambia rol_secundario por rol
-personaje(robin, tipo_modelo, mediano). %chico, mediano, alto
+personaje(robin, rol, buffer). 
+personaje(robin, tipo_modelo, mediano). 
 personaje(robin, escalado, ataque).
 personaje(robin, tiene_forma_alterna, no).
 personaje(robin, color_pelo_dominante, azul).
@@ -283,8 +278,8 @@ personaje(sparkle, genero, femenino).
 personaje(sparkle, rareza, cinco_estrellas).
 personaje(sparkle, via, armonia).
 personaje(sparkle, elemento, cuantico).
-personaje(sparkle, rol, buffer). %se cambia rol_secundario por rol
-personaje(sparkle, tipo_modelo, chico). %chico, mediano, alto
+personaje(sparkle, rol, buffer). 
+personaje(sparkle, tipo_modelo, chico). 
 personaje(sparkle, escalado, ataque).
 personaje(sparkle, tiene_forma_alterna, no).
 personaje(sparkle, color_pelo_dominante, negro).
@@ -295,9 +290,9 @@ personaje(black_swan, genero, femenino).
 personaje(black_swan, rareza, cinco_estrellas).
 personaje(black_swan, via, nihilidad).
 personaje(black_swan, elemento, viento).
-personaje(black_swan, rol, dps). %se cambia rol_secundario por rol
-personaje(black_swan, tipo_modelo, alto). %chico, mediano, alto
-personaje(black_swan, escalado, ataque). %se cambia escalado_dano por escalado
+personaje(black_swan, rol, dps). 
+personaje(black_swan, tipo_modelo, alto). 
+personaje(black_swan, escalado, ataque). 
 personaje(black_swan, tiene_forma_alterna, no).
 personaje(black_swan, color_pelo_dominante, morado).
 
@@ -307,9 +302,9 @@ personaje(sunday, genero, masculino).
 personaje(sunday, rareza, cinco_estrellas).
 personaje(sunday, via, armonia).
 personaje(sunday, elemento, imaginario).
-personaje(sunday, rol, buffer). %se cambia rol_secundario por rol
-personaje(sunday, tipo_modelo, alto). %chico, mediano, alto
-personaje(sunday, escalado, ataque). %se cambia escalado_dano por escalado
+personaje(sunday, rol, buffer). 
+personaje(sunday, tipo_modelo, alto). 
+personaje(sunday, escalado, ataque). 
 personaje(sunday, tiene_forma_alterna, no).
 personaje(sunday, color_pelo_dominante, azul).
 
@@ -319,9 +314,9 @@ personaje(acheron, genero, femenino).
 personaje(acheron, rareza, cinco_estrellas).
 personaje(acheron, via, nihilidad).
 personaje(acheron, elemento, electrico).
-personaje(acheron, rol, dps). %se cambia rol_secundario por rol
-personaje(acheron, tipo_modelo, alto). %chico, mediano, alto
-personaje(acheron, escalado, ataque). %se cambia escalado_dano por escalado
+personaje(acheron, rol, dps). 
+personaje(acheron, tipo_modelo, alto). 
+personaje(acheron, escalado, ataque). 
 personaje(acheron, tiene_forma_alterna, no).
 personaje(acheron, color_pelo_dominante, purpura).
 
@@ -331,9 +326,9 @@ personaje(gallagher, genero, masculino).
 personaje(gallagher, rareza, cuatro_estrellas).
 personaje(gallagher, via, abundancia).
 personaje(gallagher, elemento, fuego).
-personaje(gallagher, rol, soporte). %se cambia rol_secundario por rol
-personaje(gallagher, tipo_modelo, alto). %chico, mediano, alto
-personaje(gallagher, escalado, ruptura). %se cambia escalado_dano por escalado
+personaje(gallagher, rol, soporte). 
+personaje(gallagher, tipo_modelo, alto). 
+personaje(gallagher, escalado, ruptura). 
 personaje(gallagher, tiene_forma_alterna, no).
 personaje(gallagher, color_pelo_dominante, marron).
 
@@ -345,9 +340,9 @@ personaje(aventurino, genero, masculino).
 personaje(aventurino, rareza, cinco_estrellas).
 personaje(aventurino, via, conservacion).
 personaje(aventurino, elemento, imaginario).
-personaje(aventurino, rol, shielder). %se cambia rol_secundario por rol
-personaje(aventurino, tipo_modelo, alto). %chico, mediano, alto
-personaje(aventurino, escalado, defensa). %se cambia escalado_dano por escalado
+personaje(aventurino, rol, shielder). 
+personaje(aventurino, tipo_modelo, alto). 
+personaje(aventurino, escalado, defensa). 
 personaje(aventurino, tiene_forma_alterna, no).
 personaje(aventurino, color_pelo_dominante, rubio).
 
@@ -357,9 +352,9 @@ personaje(topaz, genero, femenino).
 personaje(topaz, rareza, cinco_estrellas).
 personaje(topaz, via, caceria).
 personaje(topaz, elemento, fuego).
-personaje(topaz, rol, sub_dps). %se cambia rol_secundario por rol
-personaje(topaz, tipo_modelo, alto). %chico, mediano, alto
-personaje(topaz, escalado, ataque). %se cambia escalado_dano por escalado
+personaje(topaz, rol, sub_dps). 
+personaje(topaz, tipo_modelo, alto). 
+personaje(topaz, escalado, ataque). 
 personaje(topaz, tiene_forma_alterna, no).
 personaje(topaz, color_pelo_dominante, blanco).
 
@@ -369,9 +364,9 @@ personaje(jade, genero, femenino).
 personaje(jade, rareza, cinco_estrellas).
 personaje(jade, via, erudicion).
 personaje(jade, elemento, electrico).
-personaje(jade, rol, sub_dps). %se cambia rol_secundario por rol
-personaje(jade, tipo_modelo, alto). %chico, mediano, alto
-personaje(jade, escalado, ataque). %se cambia escalado_dano por escalado
+personaje(jade, rol, sub_dps). 
+personaje(jade, tipo_modelo, alto). 
+personaje(jade, escalado, ataque). 
 personaje(jade, tiene_forma_alterna, no).
 personaje(jade, color_pelo_dominante, violeta).
 
@@ -383,9 +378,9 @@ personaje(rappa, genero, femenino).
 personaje(rappa, rareza, cinco_estrellas).
 personaje(rappa, via, erudicion).
 personaje(rappa, elemento, imaginario).
-personaje(rappa, rol, dps). %se cambia rol_secundario por rol
-personaje(rappa, tipo_modelo, alto). %chico, mediano, alto
-personaje(rappa, escalado, ruptura). %se cambia escalado_dano por escalado
+personaje(rappa, rol, dps). 
+personaje(rappa, tipo_modelo, alto). 
+personaje(rappa, escalado, ruptura). 
 personaje(rappa, tiene_forma_alterna, no).
 personaje(rappa, color_pelo_dominante, rosa).
 
@@ -395,9 +390,9 @@ personaje(bothill, genero, masculino).
 personaje(bothill, rareza, cinco_estrellas).
 personaje(bothill, via, caceria).
 personaje(bothill, elemento, fisico).
-personaje(bothill, rol, dps). %se cambia rol_secundario por rol
-personaje(bothill, tipo_modelo, alto). %chico, mediano, alto
-personaje(bothill, escalado, ruptura). %se cambia escalado_dano por escalado
+personaje(bothill, rol, dps). 
+personaje(bothill, tipo_modelo, alto). 
+personaje(bothill, escalado, ruptura). 
 personaje(bothill, tiene_forma_alterna, no).
 personaje(bothill, color_pelo_dominante, negro).
 
@@ -409,7 +404,7 @@ personaje(hysilens, genero, femenino).
 personaje(hysilens, rareza, cinco_estrellas).
 personaje(hysilens, via, nihilidad).
 personaje(hysilens, elemento, fisico).
-personaje(hysilens, rol, dps). %se cambia rol_secundario por rol
+personaje(hysilens, rol, dps). 
 personaje(hysilens, tipo_modelo, alto).
 personaje(hysilens, escalado, ataque).
 personaje(hysilens, tiene_forma_alterna, no).
@@ -477,13 +472,8 @@ personaje(hyacine, escalado, vida).
 personaje(hyacine, tiene_forma_alterna, no).
 personaje(hyacine, color_pelo_dominante, rosa).
 
-% -------------------------------------------------------------------
-% --- REGLAS: Logica central del Akinator ---
-
-% Regla principal para encontrar a todos los personajes que cumplen una lista de requisitos.
-% Requisitos es una lista de la forma [atributo-valor, ...]
+% REGLAS: Logica central del Akinator ---
 encuentra_personaje(Requisitos, Candidatos) :-
-    % 1. Encontrar todos los Nombres de personaje.
     findall(Nombre, 
             (
                 personaje(Nombre, _, _), 
@@ -491,14 +481,12 @@ encuentra_personaje(Requisitos, Candidatos) :-
             ), 
             ListaFinal),
             
-    % 2. Eliminar duplicados y obtener la lista final de candidatos.
     sort(ListaFinal, Candidatos).
 
-% Regla auxiliar para chequear que un personaje cumpla con TODOS los requisitos.
-% Caso base: Si no quedan requisitos, el personaje cumple.
+% Regla auxiliar
 check_requisitos(_, []). 
 
-% Caso recursivo: Verifica el requisito actual y pasa al siguiente.
+% Caso recursivo
 check_requisitos(Nombre, [Attr-Val | RestoRequisitos]) :-
     personaje(Nombre, Attr, Val), % ¿Es verdad que personaje(Nombre, Attr, Val)?
     check_requisitos(Nombre, RestoRequisitos). % Continúa con el resto de la lista
