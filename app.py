@@ -4,7 +4,6 @@ from flask import Flask, render_template, request, session, redirect, url_for, j
 from pyswip import Prolog
 
 app = Flask(__name__)
-# ¡IMPORTANTE! Cambia esto en producción. Es necesario para usar 'session'.
 app.secret_key = 'una_clave_secreta_super_segura_para_homenaje_a_honkai' 
 
 # Inicializa el motor de Prolog
@@ -12,8 +11,7 @@ prolog = Prolog()
 # Carga el archivo de conocimiento. ¡Debe estar en la misma carpeta!
 prolog.consult("star_rail.pl") 
 
-# Definición de las preguntas en el orden en que se harán.
-# Las respuestas se obtendrán dinámicamente de Prolog.
+
 PREGUNTAS = {
     # PRIORIDAD ALTA
     "origen_historia": "¿De qué facción principal es tu personaje?",
